@@ -1,0 +1,179 @@
+<html>
+<body>
+
+
+
+<form action="poc1" method="post">
+<Br/><input type="text" placeholder="Book id" id="bookid"/>
+<span>what happened book added or not</span>
+<br><input type="text"placeholder="Book name" id="bookname"/>
+<br><input type="text" placeholder="price"id="price"><br/>
+<br>
+<input type="submit" value="update book"/>
+</form>
+
+
+
+
+</body>
+
+
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+
+
+$(document).ready(function(){}
+$('#bookid').blur()=>{
+console.log('blur occured')
+let input={bookid:$(("#bookid').val()};
+let viraj={
+type: "get",
+                    dataType: "json",
+                    url: "http://localhost:3000/getbookdetails",
+					data:input {
+                        
+                
+                    success: function (datas) {
+							if(datas .bookfoundstatus==true){
+                                $('#bookname').val(datas.bookdetails.bookname);
+                                $('#price').val(datas.bookdetails.price);
+                                $('#sury').text("book is found");
+                            }else{
+                             $('#bookname').val("");
+                             $('#price').val("");
+                             $('#sury').text("book is not found");
+
+                            }
+                        };
+                 
+                    },
+                    error: function (error) {
+                      console.log('error occured');
+                    }
+                });
+
+$.ajax(viraj);
+
+    });
+    $('#update').click()=>{
+console.log('update event occured')
+let input={bookid:$(("#bookid').val(),price :('#price').val()};
+let viraj={
+type: "get",
+                    dataType: "json",
+                    url: "http://localhost:3000/updatebook",
+					data:input {
+                        
+                
+                    success: function (datas) {
+							if(datas .bookfoundstatus==true){
+                              
+                                $('#viraj').text("book price updated");
+                            }else{
+                            
+                             $('#price').val("");
+                             $('#sury').text("book price is not  updated");
+
+                            }
+                        };
+                 
+                    },
+                    error: function (e) {
+                      console.log('error occured');
+                    }
+                });
+
+
+});
+
+$.ajax(viraj);
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let books=[];
+
+books.push({bookid:1,bookname:'java',price:200});
+books.push({bookid:2,bookname:'ads',price:300});
+books.push({bookid:3,bookname:'wpt',price:400});
+
+function getbookbybookid(bookid){
+let output={bookfoundstatus:false}
+bookdetails:{bookid:1,bookname:'java',price:200},
+};
+for(let i=0;i<books.length;i++){
+if(books[i]==bookid){
+output.bookfoundstatus=true;
+output.bookdetails=books[i];
+break;
+
+}
+
+
+}
+return output;
+{
+console.log("no more sins");
+$("#b2").click(function () 
+	{ 
+		//console.log("jquery works");
+		alert("jquery works")
+	});
+	
+});
+
+
+</script>
+
+
+</html>
